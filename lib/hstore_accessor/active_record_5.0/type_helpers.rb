@@ -13,8 +13,8 @@ module HstoreAccessor
     TYPES.default = ActiveRecord::Type::Value
 
     class << self
-      def column_type_for(attribute, data_type)
-        ActiveRecord::ConnectionAdapters::Column.new(attribute.to_s, nil, TYPES[data_type].new)
+      def column_type_for(attribute, _data_type)
+        ActiveRecord::ConnectionAdapters::Column.new(attribute.to_s, nil)
       end
 
       def cast(type, value)
